@@ -160,7 +160,7 @@ ImprovedEuler(double x0, double y0, double h, int N, double(*f)(double, double))
         yc = y0 + h * f(x1, yp);
         y1 = (yp + yc) / 2;
 
-        result.push_back({x1, y1});
+        result.emplace_back(x1, y1);
 
         n++;
         x0 = x1;
@@ -193,7 +193,7 @@ RungeKutta4th(double x0, double y0, double h, int N, double(*f)(double, double))
         k4 = f(x1, y0 + h * k3);
         y1 = h * (k1 + 2 * k2 + 2 * k3 + k4) / 6 + y0;
 
-        result.push_back({x1, y1});
+        result.emplace_back(x1, y1);
 
         n++;
         x0 = x1;
